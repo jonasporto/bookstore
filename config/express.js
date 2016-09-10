@@ -8,11 +8,10 @@ module.exports = function() {
 	app.set('view engine', 'ejs');
 	app.set('views', './app/views');
 	
-	load('routes', {cwd: 'app'})
-		.then('db')
+	load('routes', {cwd: 'app', verbose: true})
 		.into(app);
 
-	load('database', {cwd: 'config'})
+	load('database', {cwd: 'config', verbose: true})
 		.into(app);
 
 	return app;
